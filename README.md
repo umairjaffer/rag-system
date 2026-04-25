@@ -39,7 +39,7 @@ rag-system/
 ### 1. Clone and enter the project
 
 ```bash
-git clone <your-repo>
+git clone https://github.com/umairjaffer/rag-system.git
 cd rag-system
 ```
 
@@ -155,33 +155,3 @@ All settings are read from `.env` (see `.env.example`):
 | `RETRIEVER_K`         | `4`                                        | Number of chunks retrieved per query |
 
 ---
-
-## Production Deployment
-
-```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
-```
-
-For Docker deployment, create a `Dockerfile`:
-
-```dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
-```
-
----
-
-## Next.js Frontend Integration
-
-This API is CORS-enabled (`allow_origins=["*"]`). For your Next.js frontend, call:
-
-- `POST /upload/` with `FormData` to upload PDFs
-- `POST /query/` with JSON body `{ "question": "..." }` for answers
-- `GET /health/` to check if the backend is ready before showing the UI
-
-In production, update `allow_origins` in `main.py` to your actual Next.js domain.
