@@ -155,3 +155,4 @@ All settings are read from `.env` (see `.env.example`):
 | `RETRIEVER_K`         | `4`                                        | Number of chunks retrieved per query |
 
 ---
+
