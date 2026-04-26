@@ -73,7 +73,7 @@ Get a free Groq API key at: https://console.groq.com
 ### 5. Start the development server
 
 ```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 Open http://localhost:8000 — it redirects to the Swagger UI at http://localhost:8000/docs
